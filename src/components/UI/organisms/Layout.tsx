@@ -117,7 +117,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Fatec Orders
+            EcosRev
           </Typography>
         </Toolbar>
       </AppBar>
