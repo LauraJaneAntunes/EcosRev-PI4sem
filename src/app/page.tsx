@@ -13,6 +13,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import theme from "../../theme/Theme";
 import { ThemeProvider } from "@mui/material/styles";
+import backgroundImage from "../../projeto/public/images/imagem1.jpg";
+import "../style/Login.css";
 
 export default function Home() {
   const router = useRouter();
@@ -28,14 +30,16 @@ export default function Home() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Image className="backgroundImage" src={backgroundImage} />
+      <Container className="container" component="main" maxWidth="sm">
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            marginTop: "0.5rem",
+            // marginTop: "0.5rem",
           }}
+          className="login-form"
         >
           <Typography variant="h5" color="primary">
             LogIn
