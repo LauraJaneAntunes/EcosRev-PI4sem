@@ -1,41 +1,39 @@
 "use client";
 
 import { withDataFetching } from "@/components/HOCS/withDataFetching";
-import EditTemplate from "@/components/templates/products/EditTemplate";
+import EditTemplate from "@/components/templates/beneficio/EditTemplate";
 import { env } from "@/config/env";
-import { IProduct } from "@/interfaces/IProduct";
+import { IBeneficios } from "@/interfaces/IBeneficios";
 import { useEffect, useState } from "react";
 
-interface ProductEditProps {
+interface BeneficioEditProps {
   params: { slug: string };
   data: any;
 }
 
-const ProductEdit: React.FC<ProductEditProps> = ({ params, data }) => {
-  const [product, setProduct] = useState<IProduct>();
+const ProductEdit: React.FC<BeneficioEditProps> = ({ params, data }) => {
+  const [beneficio, setBeneficio] = useState<IBeneficios>();
 
   useEffect(() => {
     if (!data) return;
     const {
       id,
-      descricao: description,
-      marca: brand,
-      valor: value,
-      peso_gramas: weight,
-      sabor: flavor,
-    } = data.produto;
+      nome: name,
+      endereco: address,
+      pontos: points,
+      qtd: qtd,
+    } = data.beneficio;
 
-    setProduct({
+    setBeneficio({
       id,
-      brand,
-      description,
-      flavor,
-      value,
-      weight,
+      name,
+      address,
+      points,
+      qtd,
     });
   }, [data]);
 
-  return <EditTemplate product={product} />;
+  return <EditTemplate beneficio={beneficio} />;
 };
 
-export default withDataFetching(`${env.apiBaseUrl}/produto`)(ProductEdit);
+export default withDataFetching(`${env.apiBaseUrl}/beneficios`)(ProductEdit);

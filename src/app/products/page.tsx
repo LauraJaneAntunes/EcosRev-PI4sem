@@ -12,18 +12,18 @@ const Products = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await axios.get(`${env.apiBaseUrl}/produto`);
+      const response = await axios.get(`${env.apiBaseUrl}/beneficios`);
+      console.log(response)
 
-      const products = response.data.produtos.map((product: any) => ({
-        id: product.id,
-        description: product.descricao,
-        brand: product.marca,
-        value: product.valor,
-        weight: product.peso_gramas,
-        flavor: product.sabor,
+      const beneficios = response.data.map((beneficio: any) => ({
+        id: beneficio.id,
+        name: beneficio.nome,
+        address: beneficio.endereco,
+        points: beneficio.pontos,
+        qtd: beneficio.quantidade,
       }));
 
-      setRows(products);
+      setRows(beneficios);
     };
 
     fetchProducts();
@@ -31,34 +31,28 @@ const Products = () => {
 
   const headCells = [
     {
-      id: "description",
+      id: "name",
       numeric: false,
       disablePadding: false,
-      label: "Descrição",
+      label: "Nome",
     },
     {
-      id: "brand",
+      id: "address",
       numeric: false,
       disablePadding: false,
-      label: "Marca",
+      label: "Endereço",
     },
     {
-      id: "value",
+      id: "points",
       numeric: true,
       disablePadding: false,
-      label: "Valor",
+      label: "Pontos",
     },
     {
-      id: "weight",
+      id: "qtd",
       numeric: true,
       disablePadding: false,
-      label: "Peso",
-    },
-    {
-      id: "flavor",
-      numeric: false,
-      disablePadding: false,
-      label: "Sabor",
+      label: "Quantidade",
     },
   ];
 
