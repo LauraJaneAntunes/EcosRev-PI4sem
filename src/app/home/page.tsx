@@ -1,41 +1,11 @@
-// Versão Gabriel
-
-// "use client";
-
-// import Layout from "@/components/UI/organisms/Layout";
-// import { ThemeProvider } from "@emotion/react";
-// import { Box } from "@mui/material";
-// import theme from "../../../theme/Theme";
-// import Image from "next/image";
-// import backgroundImage2 from "../../../projeto/public/images/imagem2.jpg";
-// import "../../style/Login.css";
-
-// const Home = () => {
-//   return (
-//     <ThemeProvider theme={theme}>
-//       <Layout>
-//         <Image className="backgroundImage" src={backgroundImage2} />
-//         <Box color="primary"> Nosso Projeto </Box>
-//       </Layout>
-//     </ThemeProvider>
-//   );
-// };
-
-// export default Home;
-
 "use client";
 
 import Layout from "@/components/UI/organisms/Layout";
 import { ThemeProvider } from "@emotion/react";
 import theme from "../../../theme/Theme";
-import { Box, Container, Grid, Typography, Button, IconButton } from '@mui/material';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import logoSvg from "../../../projeto/public/images/logo.svg";
 import backgroundImage2 from "../../../projeto/public/images/imagem2.jpg";
 import '../../style/MenuUser.css';
 import RecyclingIcon from '@mui/icons-material/Recycling';
@@ -49,38 +19,12 @@ export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
-        <Navbar />
         <Carousel />
         <Introduction />
         <Services />
         <Testimonials />
-        <Footer />
       </Layout>
     </ThemeProvider>
-  );
-}
-
-function Navbar() {
-  const router = useRouter();
-
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Container>
-        <Grid container alignItems="center" py={2}>
-          <Grid item xs={8} display="flex" alignItems="center">
-            <Image className="logoSvg" src={logoSvg} alt="EcosRev Logo" width={200} height={112} />
-            <Box display="flex" ml={2}>
-              <Button onClick={() => router.push('/menuUser')} color="primary">Início</Button>
-              <Button onClick={() => router.push('/perfilUsuario')} color="primary">Ver meu perfil</Button>
-              <Button onClick={() => router.push('/trocarPontos')} color="primary">Trocar meus pontos</Button>
-            </Box>
-          </Grid>
-          <Grid item xs={4} display="flex" justifyContent="flex-end">
-            <Button onClick={() => router.push('/index')} variant="contained" color="primary">Sair</Button>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
   );
 }
 
@@ -89,7 +33,7 @@ function Carousel() {
     <Box sx={{ backgroundColor: '#f9f9f9', padding: '60px 0' }} textAlign="center">
       <Container>
         <div className="image-container">
-          <Image className="backgroundImage" src={backgroundImage2} alt="Background Image" />
+          <Image className="backgroundImage2" src={backgroundImage2} alt="Background Image" />
           <h4 className="overlay-text">
             Descarte seus resíduos eletrônicos corretamente e ajude a construir um planeta mais limpo!
           </h4>
@@ -169,24 +113,3 @@ function Testimonials() {
   );
 }
 
-function Footer() {
-  return (
-    <Box sx={{ backgroundColor: 'primary.main', padding: '20px 0', color: 'white' }}>
-      <Container>
-        <Grid container justifyContent="space-between" alignItems="center">
-          <Grid item>
-            <Typography variant="body2" gutterBottom color="white">© 2023 EcosRev</Typography>
-          </Grid>
-          <Grid item>
-            <Box display="flex">
-              <IconButton color="inherit" href="#"><InstagramIcon /></IconButton>
-              <IconButton color="inherit" href="#"><FacebookIcon /></IconButton>
-              <IconButton color="inherit" href="#"><TwitterIcon /></IconButton>
-              <IconButton color="inherit" href="https://github.com/Ecosrev/ecosrevMongo"><GitHubIcon /></IconButton>
-            </Box>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
-  );
-}
