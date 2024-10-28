@@ -34,7 +34,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Roboto, Arial, sans-serif", // Define a fonte padrão
+    fontFamily: "'Poppins', sans-serif", // Define a fonte padrão
   },
 });
 
