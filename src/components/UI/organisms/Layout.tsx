@@ -17,6 +17,8 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import { useRouter } from "next/navigation";
 import CustomListItem from "../molecules/CustomListItem";
+import Header from "../molecules/Header";
+import Footer from "../molecules/Footer";
 
 const drawerWidth = 240;
 
@@ -29,7 +31,7 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
-  marginLeft: `-${drawerWidth}px`,
+
   variants: [
     {
       props: ({ open }) => open,
@@ -98,28 +100,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const router = useRouter();
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={[
-              {
-                mr: 2,
-              },
-              open && { display: "none" },
-            ]}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            EcosRev
-          </Typography>
-        </Toolbar>
+      <AppBar open={open}>
+        <Header />
       </AppBar>
       <Drawer
         sx={{
@@ -161,6 +145,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <DrawerHeader />
         {children}
       </Main>
+      <Footer />
     </Box>
   );
 };
