@@ -22,7 +22,7 @@ const BeneficiosEdit: React.FC<BeneficioEditProps> = ({ params, data }) => {
       endereco: address,
       pontos: points,
       quantidade: qtd,
-    } = data.beneficio;
+    } = data;
 
     setBeneficio({
       id,
