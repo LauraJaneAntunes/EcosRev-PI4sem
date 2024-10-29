@@ -11,7 +11,7 @@ interface BeneficioEditProps {
   data: any;
 }
 
-const ProductEdit: React.FC<BeneficioEditProps> = ({ params, data }) => {
+const BeneficiosEdit: React.FC<BeneficioEditProps> = ({ params, data }) => {
   const [beneficio, setBeneficio] = useState<IBeneficios>();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const ProductEdit: React.FC<BeneficioEditProps> = ({ params, data }) => {
       nome: name,
       endereco: address,
       pontos: points,
-      qtd: qtd,
+      quantidade: qtd,
     } = data.beneficio;
 
     setBeneficio({
@@ -36,4 +36,4 @@ const ProductEdit: React.FC<BeneficioEditProps> = ({ params, data }) => {
   return <EditTemplate beneficio={beneficio} />;
 };
 
-export default withDataFetching(`${env.apiBaseUrl}/beneficios`)(ProductEdit);
+export default withDataFetching(`${env.apiBaseUrl}/beneficios`)(BeneficiosEdit);

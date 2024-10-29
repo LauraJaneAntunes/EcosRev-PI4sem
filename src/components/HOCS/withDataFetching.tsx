@@ -11,7 +11,6 @@ export const withDataFetching = (url: string) => (WrappedComponent: any) => {
     useEffect(() => {
       const fetchData = async () => {
         const id = props.params?.slug ? `/${props.params?.slug}` : "";
-
         try {
           const response = await axios.get(`${url}${id}`);
           setData(response.data);

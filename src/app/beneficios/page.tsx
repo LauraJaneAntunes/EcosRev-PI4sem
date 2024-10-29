@@ -7,11 +7,11 @@ import { Box } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Products = () => {
+const Beneficios = () => {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchBeneficios = async () => {
       const response = await axios.get(`${env.apiBaseUrl}/beneficios`);
       console.log(response)
 
@@ -26,7 +26,7 @@ const Products = () => {
       setRows(beneficios);
     };
 
-    fetchProducts();
+    fetchBeneficios();
   }, []);
 
   const headCells = [
@@ -58,14 +58,14 @@ const Products = () => {
 
   return (
     <Layout>
-      <Box data-testid="productList"> Lista de Produtos </Box>
+      <Box data-testid="beneficioList"> Lista de Benefícios </Box>
       <CustomTable
         rows={rows}
         headCells={headCells}
-        editPath="/products/edit"
+        editPath="/beneficios/edit"
       />
     </Layout>
   );
 };
 
-export default Products;
+export default Beneficios;
