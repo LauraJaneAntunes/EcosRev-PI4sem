@@ -3,9 +3,11 @@
 import CustomTable from "@/components/UI/organisms/CustomTable";
 import Layout from "@/components/UI/organisms/Layout";
 import { env } from "@/config/env";
-import { Box } from "@mui/material";
+import { Container } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { ThemeProvider } from "@emotion/react";
+import theme from "../../../theme/Theme";
 
 const Beneficios = () => {
   const [rows, setRows] = useState([]);
@@ -57,14 +59,17 @@ const Beneficios = () => {
   ];
 
   return (
-    <Layout>
-      <Box data-testid="beneficioList"> Lista de Benefícios </Box>
-      <CustomTable
-        rows={rows}
-        headCells={headCells}
-        editPath="/beneficios/edit"
-      />
-    </Layout>
+    <ThemeProvider theme={theme}>
+      <Layout>
+        <Container sx={{ paddingTop: 4 }}>          
+          <CustomTable
+            rows={rows}
+            headCells={headCells}
+            editPath="/beneficios/edit"
+          />
+        </Container>
+      </Layout>
+    </ThemeProvider>
   );
 };
 

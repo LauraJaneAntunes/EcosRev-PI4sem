@@ -71,8 +71,9 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
         variant="h6"
         id="tableTitle"
         component="div"
+        color="#9cc444"
       >
-        Nutrition
+        Lista de Benefícios
       </Typography>
     </Toolbar>
   );
@@ -287,10 +288,10 @@ export default function CustomTable({
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
-      <FormControlLabel
+      {/* <FormControlLabel
         control={<Switch checked={dense} onChange={handleChangeDense} />}
         label="Dense padding"
-      />
+      /> */}
     </Box>
   );
 }

@@ -128,20 +128,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </IconButton>
         </DrawerHeader>
         <Divider />
-
-        <List>
-          <CustomListItem text="Início" path="/home" icon={<InboxIcon />} />
-          <CustomListItem
-            text="Produtos"
-            path="/products"
-            icon={<InboxIcon />}
-          />
-          <CustomListItem text="Pedidos" path="/orders" icon={<InboxIcon />} />
-          <CustomListItem text="Sair" path="/" icon={<InboxIcon />} />
-        </List>
-        <Divider />
       </Drawer>
-      <Main open={open}>
+      <Main open={open} sx={{ flexGrow: 1 }}>
         <DrawerHeader />
         {children}
       </Main>
