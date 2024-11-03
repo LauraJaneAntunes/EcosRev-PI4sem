@@ -29,6 +29,7 @@ module.exports = {
         tsconfig: "tsconfig.jest.json",
       },
     ],
+    "^.+\\.(svg|jpg|jpeg|png|gif|webp|avif|ico|bmp|tiff)$": "jest-transform-stub", // Adicionando jest-transform-stub para arquivos de mídia
   },
   transformIgnorePatterns: ["/node_modules/"],
   testEnvironmentOptions: {
