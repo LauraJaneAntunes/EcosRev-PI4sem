@@ -13,6 +13,9 @@ const Header = () => {
           <Button onClick={() => router.push('/home')} color="primary" sx={{ mx: 1 }}>Início</Button>
           <Button onClick={() => router.push('/perfil')} color="primary"sx={{ mx: 1 }}>Ver meu perfil</Button>
           <Button onClick={() => router.push('/beneficios')} color="primary"sx={{ mx: 1 }}>Beneficios</Button>
+          <Button onClick={() => router.push('/usuarios')} color="primary"sx={{ mx: 1 }}>Usuarios</Button>
+          <Button onClick={() => router.push('/beneficios/cadastro')} color="primary"sx={{ mx: 1 }}>Cadastro de Benefícios</Button>
+          <Button onClick={() => router.push('/beneficios/troca')} color="primary"sx={{ mx: 1 }}>Troca de pontos</Button>
         </Box>
         <Box display="flex" justifyContent="flex-end" flexGrow={1}>
           <Button onClick={() => router.push('/')} variant="contained" color="primary">Sair</Button>
