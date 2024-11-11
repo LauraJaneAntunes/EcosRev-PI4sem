@@ -2,6 +2,8 @@ import { Box, Button } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import logoSvg from '../../../../projeto/public/images/logo.svg';
+import LeafButton from '../atoms/LeafButton';
+import leafIcon from '../../../../public/images/icon_leaf.png';
 
 const Header = () => {
     const router = useRouter();
@@ -18,7 +20,7 @@ const Header = () => {
           <Button onClick={() => router.push('/beneficios/troca')} color="primary"sx={{ mx: 1 }}>Troca de pontos</Button>
         </Box>
         <Box display="flex" justifyContent="flex-end" flexGrow={1}>
-          <Button onClick={() => router.push('/')} variant="contained" color="primary">Sair</Button>
+          <LeafButton onClick={() => router.push('/')} iconSrc={leafIcon}>Sair</LeafButton>
         </Box>
       </Box>
     );
