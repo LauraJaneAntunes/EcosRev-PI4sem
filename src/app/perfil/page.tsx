@@ -7,6 +7,7 @@ import userImage from "../../../public/images/userImg.png";
 import Layout from "@/components/UI/organisms/Layout";
 import { ThemeProvider } from "@emotion/react";
 import theme from "../../../theme/Theme";
+import adminTheme from "../../../themes/adminTheme";
 
 const PerfilPage = () => {
   const [userData, setUserData] = useState({
@@ -16,7 +17,35 @@ const PerfilPage = () => {
     profileImage: ''
   });
 
+  // Lógica para verificar se o usuário é admin - nao esquecer da condicional no return
+
+  //  const [isAdmin, setIsAdmin] = useState(false); // Estado para verificar se é admin
+   
+  //  useEffect(() => {
+  //  const fetchUserData = async () => {
+  //   try {
+  //     const response = await fetch('/api/user'); // Altere para o endpoint correto
+  //     const data = await response.json();
+
+  //     setUserData({
+  //         nome: `${data.name}`,
+  //         endereco: 'Endereço placeholder', // ajuste conforme necessário
+  //         senha: 'senha123',
+  //         profileImage: data.profileImage || userImage
+  //       });
+
+  //       // Verifique o campo 'role' para definir isAdmin
+  //       setIsAdmin(data.role === 'admin');
+  //     } catch (error) {
+  //       console.error('Erro ao obter dados do usuário:', error);
+  //     }
+  //   };
+
+  //   fetchUserData();
+  // }, []);
+  
   // Função que simula a obtenção dos dados do perfil do usuário
+
   useEffect(() => {
     const preencherCamposPerfil = async () => {
       try {
@@ -47,6 +76,7 @@ const PerfilPage = () => {
   };
 
   return (
+    // <ThemeProvider theme={isAdmin ? adminTheme : theme}></ThemeProvider>
     <ThemeProvider theme={theme}>
       <Layout>
         <Container sx={{ paddingTop: 4 }}>          <Card className="perfilCard" variant="outlined">
