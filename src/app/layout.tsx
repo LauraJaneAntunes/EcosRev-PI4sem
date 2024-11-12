@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import userTheme from "../../themes/Theme";
+import adminTheme from "../../themes/adminTheme";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +17,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <AuthProvider>
+        <ThemeSelector>
+          <body className={inter.className}>{children}</body>
+        </ThemeSelector>
+      </AuthProvider>
     </html>
   );
 }
+
+const ThemeSelector = ({children}) => {
+
+  const {isAdmin} = useAuth();
+
+return <ThemeProvider theme={isAdmin?adminTheme:userTheme}>
+  {children}
+</ThemeProvider>
+}
+
