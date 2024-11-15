@@ -9,8 +9,6 @@
 }
 
 .login-form {
-  margin-bottom: 50%;
-  margin-top: 50%;
   position: relative;
   /* Estilos adicionais para o formulário */
   background-color: rgba(
@@ -26,4 +24,8 @@
 
 .container {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }

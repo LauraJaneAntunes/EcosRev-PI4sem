@@ -3,9 +3,11 @@
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useState } from "react";
 import backgroundImage from "../../projeto/public/images/imagem1.jpg";
 import "../style/Login.css";
+
 // import { useAuth } from "../../src/context/AuthContext";
 // deixei o authprovider comentado enquanto aguarda a conexao com api
 
@@ -19,10 +21,10 @@ export default function Home() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault(); // Impede o comportamento padrão do formulário
 
-  // Simulação de login (sem validação dos campos)
+    // Simulação de login (sem validação dos campos)
     router.push("/home");
 
-  // Lógica de autenticação após conexão com API:
+    // Lógica de autenticação após conexão com API:
     //   if (email && password) {
     //     try {
     //       // Chama a função de login do contexto AuthProvider
@@ -46,27 +48,26 @@ export default function Home() {
   };
 
   return (
-    <>
-      <div className="background-image-wrapper">
-        <Image
-          className="backgroundImage"
-          alt="Background"
-          src={backgroundImage}
-          layout="fill" // Isso garante que a imagem cubra toda a tela
-          objectFit="cover" // A imagem vai cobrir o fundo
-        />
-      </div>
+    <div style={{ position: 'relative', height: '100vh', overflow: "hidden" }}>
+      <Image
+        className="backgroundImage"
+        alt="Background"
+        src={backgroundImage}
+        fill
+        priority // Adicionado a propriedade priority para otimizar o carregamento
+      />
+    
       <Container className="container" component="main" maxWidth="sm">
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            marginTop: 8, // Alinha o formulário no centro verticalmente
+            maxWidth: "400px",
           }}
           className="login-form"
         >
-          <Typography variant="h5" color="primary">
+          <Typography variant="h5" color="primary" sx={{ mb: 2 }}>
             Login
           </Typography>
 
@@ -108,8 +109,35 @@ export default function Home() {
               Login
             </Button>
           </Box>
+
+          {/* Links para Cadastro e Redefinição de Senha */}
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            width: '100%',
+            flexDirection: { xs: 'column', sm: 'row' },
+            gap: 1,
+            alignItems: 'center'
+          }}>
+            <Link href="/signup" passHref>
+              <Typography variant="body2" sx={{ 
+                fontWeight: "bold" , 
+                color: "primary.main",
+                textAlign: { xs: 'center', sm: 'left' }
+              }}>
+                Não tem uma conta? Cadastre-se
+              </Typography>
+            </Link>
+            <Link href="/reset-password" passHref>
+              <Typography variant="body2" sx={{
+                textAlign: { xs: 'center', sm: 'right' }
+              }}> 
+                Esqueceu a senha?
+              </Typography>
+            </Link>
+          </Box>
         </Box>
       </Container>
-    </>
+    </div>
   );
 }
