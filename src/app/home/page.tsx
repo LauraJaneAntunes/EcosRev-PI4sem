@@ -1,8 +1,6 @@
 "use client";
 
 import Layout from "@/components/UI/organisms/Layout";
-import { ThemeProvider } from "@emotion/react";
-import theme from "../../../theme/Theme";
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -17,14 +15,12 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <ThemeProvider theme={theme}>
-      <Layout>
-        <Carousel />
-        <Introduction />
-        <Services />
-        <Testimonials />
-      </Layout>
-    </ThemeProvider>
+    <Layout>
+      <Carousel />
+      <Introduction />
+      <Services />
+      <Testimonials />
+    </Layout>
   );
 }
 

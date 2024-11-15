@@ -4,8 +4,6 @@ import { IBeneficios } from "@/interfaces/IBeneficios";
 import { BeneficioEditValidator } from "@/validators/BeneficioEditValidator";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "../../../../theme/Theme";
 import axios from "axios";
 import Layout from "@/components/UI/organisms/Layout";
 
@@ -33,8 +31,7 @@ const CadastroTemplate: React.FC = () => {
   const { handleSubmit, values, handleChange, errors } = formik;
 
   return (
-    <ThemeProvider theme={theme}>
-        <Layout>
+    <Layout>
       <Box
         sx={{
           display: "flex",
@@ -104,8 +101,7 @@ const CadastroTemplate: React.FC = () => {
           </Box>
         </Box>
       </Box>
-      </Layout>
-    </ThemeProvider>
+    </Layout>
   );
 };
 
