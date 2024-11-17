@@ -46,7 +46,7 @@ const Signup: React.FC = () => {
       const response = await axios.post("http://localhost:5000/api/signup", formData);
       setSuccess("Cadastro realizado com sucesso!");
       setFormData({ name: "", email: "", password: "", confirmPassword: "" });
-      router.push("/login"); // Redireciona para a página de login após o cadastro
+      router.push("/login");
     } catch (error) {
       setError("Erro ao cadastrar usuário!");
     }
@@ -54,8 +54,9 @@ const Signup: React.FC = () => {
 
   return (
     <AuthTemplate backgroundImage={backgroundRoadImage.src}>
-            {/* Header */}
-            <Header />
+      {/* O Header */}
+      <Header/> 
+
       <Container
         component="main"
         maxWidth="xs"
@@ -75,7 +76,7 @@ const Signup: React.FC = () => {
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
-            backgroundColor: "rgba(255, 255, 255, 0.8)", // Background leve de transparência
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
             borderRadius: "10px",
             padding: 4,
           }}
@@ -84,6 +85,7 @@ const Signup: React.FC = () => {
             Cadastro
           </Typography>
 
+          {/* Formulário de Cadastro */}
           <Box component="form" onSubmit={handleSubmit} sx={{ width: "100%" }}>
             <FormTextField
               label="Nome"
