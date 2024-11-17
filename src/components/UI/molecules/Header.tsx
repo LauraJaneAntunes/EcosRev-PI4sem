@@ -17,7 +17,20 @@ const Header = () => {
   const isAdmin = true; // Exemplo de verificação de admin. Troque conforme a lógica de autenticação.
 
   return (
-    <Box display="flex" alignItems="center" p={2} sx={{ backgroundColor: 'white', height: '96px' }}>
+    <Box
+      display="flex"
+      alignItems="center"
+      p={2}
+      sx={{
+        backgroundColor: "white",
+        height: "96px",
+        position: "fixed", // Faz o Header ficar fixo no topo
+        top: 0,
+        left: 0,
+        width: "100%",
+        zIndex: 1000, // Garante que o Header esteja acima dos outros elementos
+      }}
+>
       {/* Exibe o logo */}
       <Image src={logoSvg} alt="EcosRev Logo" width={200} height={112} />
 
