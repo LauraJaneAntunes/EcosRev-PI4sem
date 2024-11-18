@@ -9,9 +9,8 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Verifica se a página atual é de cadastro ou redefinição de senha
-  const isSignupPage = pathname === "/signup";
-  const isResetPasswordPage = pathname === "/reset-password";
+  // Verifica se a página atual é de cadastro, redefinição de senha ou recuperação de senha
+  const isSpecialPage = ["/signup", "/reset-password", "/passwordRecovery"].includes(pathname);
 
   // Verifica se o usuário é admin (você pode substituir isso por uma lógica de autenticação real)
   const isAdmin = true; // Exemplo de verificação de admin. Troque conforme a lógica de autenticação.
@@ -24,18 +23,18 @@ const Header = () => {
       sx={{
         backgroundColor: "white",
         height: "96px",
-        position: "fixed", // Faz o Header ficar fixo no topo
+        position: "fixed",
         top: 0,
         left: 0,
         width: "100%",
-        zIndex: 1000, // Garante que o Header esteja acima dos outros elementos
+        zIndex: 1000,
       }}
->
+    >
       {/* Exibe o logo */}
       <Image src={logoSvg} alt="EcosRev Logo" width={200} height={112} />
 
-      {/* Se não for página de cadastro ou redefinição de senha, exibe os links */}
-      {!isSignupPage && !isResetPasswordPage && (
+      {/* Se não for uma página especial, exibe os links */}
+      {!isSpecialPage && (
         <Box display="flex" ml={2}>
           {/* Para usuários comuns */}
           {!isAdmin && (
@@ -80,8 +79,8 @@ const Header = () => {
         </Box>
       )}
 
-      {/* Só exibe o botão de "Sair" se não for página de cadastro ou redefinição de senha */}
-      {!isSignupPage && !isResetPasswordPage && (
+      {/* Só exibe o botão de "Sair" se não for uma página especial */}
+      {!isSpecialPage && (
         <Box display="flex" justifyContent="flex-end" flexGrow={1}>
           <LeafButton onClick={() => router.push('/')} iconSrc={leafIcon}>
             Sair

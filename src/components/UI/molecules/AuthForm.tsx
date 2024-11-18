@@ -116,7 +116,7 @@ export const AuthForm = ({
                   Não tem uma conta? Cadastre-se
                 </Typography>
               </Link>
-              <Link href="/reset-password" passHref>
+              <Link href="/passwordRecovery" passHref>
                 <Typography variant="body2">
                   Esqueceu a senha?
                 </Typography>

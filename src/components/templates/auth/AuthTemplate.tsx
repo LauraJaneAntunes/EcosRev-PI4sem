@@ -1,7 +1,7 @@
 import { styled } from "@mui/system";
 
 const PageWrapper = styled('div')({
-  position: 'fixed', // Mudado para fixed para evitar rolagem
+  position: 'fixed',
   top: 0,
   left: 0,
   right: 0,
