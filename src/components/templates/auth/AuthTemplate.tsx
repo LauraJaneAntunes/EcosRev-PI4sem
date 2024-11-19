@@ -12,7 +12,7 @@ const PageWrapper = styled('div')({
   overflow: 'hidden',
 });
 
-const BackgroundImage = styled('div')({
+const BackgroundImage = styled('div')<{ backgroundImage: string }>(({ backgroundImage }) => ({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -21,7 +21,8 @@ const BackgroundImage = styled('div')({
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   zIndex: 0,
-});
+  backgroundImage: `url(${backgroundImage})`,
+}));
 
 interface AuthTemplateProps {
   children: React.ReactNode;
@@ -30,7 +31,7 @@ interface AuthTemplateProps {
 
 export const AuthTemplate = ({ children, backgroundImage }: AuthTemplateProps) => (
   <PageWrapper>
-    <BackgroundImage style={{ backgroundImage: `url(${backgroundImage})` }} />
+    <BackgroundImage backgroundImage={backgroundImage} />
     {children}
   </PageWrapper>
 );

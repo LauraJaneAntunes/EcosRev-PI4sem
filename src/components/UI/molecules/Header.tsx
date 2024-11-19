@@ -1,7 +1,7 @@
 import { Box, Button } from '@mui/material';
 import { useRouter, usePathname } from 'next/navigation';
 import Image from 'next/image';
-import logoSvg from '../../../../projeto/public/images/logo.svg';
+import logoSvg from '/public/images/logo.svg';
 import LeafButton from '../atoms/LeafButton';
 import leafIcon from '../../../../public/images/icon_leaf.png';
 
@@ -10,7 +10,7 @@ const Header = () => {
   const pathname = usePathname();
 
   // Verifica se a página atual é de cadastro, redefinição de senha ou recuperação de senha
-  const isSpecialPage = ["/signup", "/reset-password", "/passwordRecovery"].includes(pathname);
+  const isSpecialPage = ["/", "/signup", "/reset-password", "/passwordRecovery"].includes(pathname);
 
   // Verifica se o usuário é admin (você pode substituir isso por uma lógica de autenticação real)
   const isAdmin = true; // Exemplo de verificação de admin. Troque conforme a lógica de autenticação.
@@ -31,7 +31,12 @@ const Header = () => {
       }}
     >
       {/* Exibe o logo */}
-      <Image src={logoSvg} alt="EcosRev Logo" width={200} height={112} />
+      <Image 
+        src={logoSvg} 
+        alt="EcosRev Logo" 
+        width={200} 
+        height={112} 
+        priority />
 
       {/* Se não for uma página especial, exibe os links */}
       {!isSpecialPage && (

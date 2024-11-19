@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { AuthForm } from "@/components/UI/molecules/AuthForm";
 import { AuthTemplate } from "@/components/templates/auth/AuthTemplate";
 import backgroundImage from "../../public/images/loginImg.jpg";
+import Header from "@/components/UI/molecules/Header";
 
 // import { useAuth } from "../../src/context/AuthContext";
 // deixei o authprovider comentado enquanto aguarda a conexao com api
@@ -47,14 +48,15 @@ export default function Home() {
 
   return (
     <AuthTemplate backgroundImage={backgroundImage.src}>
-      <AuthForm
-        formType="login"
-        email={email}
-        password={password}
-        onEmailChange={(e) => setEmail(e.target.value)}
-        onPasswordChange={(e) => setPassword(e.target.value)}
-        onSubmit={handleLogin}
-      />
+      <Header/>
+        <AuthForm
+          formType="login"
+          email={email}
+          password={password}
+          onEmailChange={(e) => setEmail(e.target.value)}
+          onPasswordChange={(e) => setPassword(e.target.value)}
+          onSubmit={handleLogin}
+        />
     </AuthTemplate>
   );
 }
