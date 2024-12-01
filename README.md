@@ -6,7 +6,7 @@
 <p align="center">
     <a href="#sobre">Sobre</a> | 
     <a href="#protótipo">Protótipo</a> |  
-    <a href="#apresentação">Apresentação</a> | 
+    <a href="#apresentacao">Apresentação</a> | 
     <a href="#docker">Docker</a> |       
     <a href="#tecnologias">Tecnologias</a> |    
     <a href="#integrantes">Equipe</a>
@@ -53,6 +53,8 @@ Acesse o protótipo interativo no Figma:
 ---
 
 ## Docker ![Docker Icon](https://upload.wikimedia.org/wikipedia/commons/3/39/Docker_logo.png)
+
+### Construir a Imagem do Frontend
 
 ### Construir a Imagem do Frontend
 
