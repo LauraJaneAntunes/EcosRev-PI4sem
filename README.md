@@ -1,83 +1,35 @@
-<div align="center">
-  ![banner](https://github.com/(colocar a img aqui))
-</div>
+<details>
+  <summary>🐳 Docker: Frontend</summary>
+  <p>
+    Construir a Imagem do Frontend:</strong>  
+    <pre><code>docker build -t ecosrev-frontend-app .</code></pre>
 
-<br id="topo">
-<p align="center">
-    <a href="#sobre">Sobre</a> | 
-    <a href="#protótipo">Protótipo</a> |  
-    <a href="#apresentacao">Apresentação</a> | 
-    <a href="#docker">Docker</a> |       
-    <a href="#tecnologias">Tecnologias</a> |    
-    <a href="#integrantes">Equipe</a>
-</p>
+    <b>Executar o Container:</b>  
+    <pre><code>docker run -p 3000:3000 -e NEXT_PUBLIC_API_URL=http://localhost:4000/api</code></pre>
 
-# 🍃 Grupo Ecosrev
+    <strong>Link do Frontend no Docker Hub:</strong>  
+    <a href="https://hub.docker.com/r/yamaokak/ecosrev-frontend" target="_blank">https://hub.docker.com/r/yamaokak/ecosrev-frontend</a>
+  </p>
+</details>
 
-## 👤 Integrantes
+<details>
+  <summary>🐳 Docker: Backend</summary>
+  <p>
+    <strong>Construir a Imagem do Backend:</strong>  
+    <pre><code>docker build -t ecosrev-backend .</code></pre>
 
-| Nome | GitHub |
-| ----- | ------ |
-| **Gabriel Yamaoka Bernardes** | [YamaokaK](https://github.com/YamaokaK) |
-| **João Lucas Melo** | [JoaoLucasMdO](https://github.com/JoaoLucasMdO) |
-| **Laura Jane Antunes** | [LauraJaneAntunes](https://github.com/LauraJaneAntunes) |
-| **Mariana Hirata** | [marianakakimoto](https://github.com/marianakakimoto) |
-| **Mateus Ferreira** | [AEntropia](https://github.com/AEntropia) |
+    <strong>Executar o Container:</strong>  
+    <pre><code>docker run -p 4000:4000 --env-file .env ecosrev-backend</code></pre>
 
----
+    <strong>Link do Backend no Docker Hub:</strong>  
+    <a href="https://hub.docker.com/r/yamaokak/ecosrev-backend" target="_blank">https://hub.docker.com/r/yamaokak/ecosrev-backend</a>
+  </p>
+</details>
 
-## 📃 Sobre
-
-O **EcosRev** é um website criado com o objetivo de incentivar o descarte correto de resíduos eletroeletrônicos, promovendo a conexão entre empresas coletoras e cidadãos. O projeto visa aumentar a conscientização ambiental e melhorar o processo de descarte, contribuindo para a preservação do meio ambiente.
-
----
-
-## 💡 Protótipo
-
-Acesse o protótipo interativo no Figma:  
-[Protótipo no Figma](https://www.figma.com/design/9qf7Ry7BcaML25kAtYWB17/Untitled)
-
----
-
-## 🌐 Tecnologias Utilizadas
-
-- **Frontend**: React.js, Next.js, Typescript, Atomic Design
-- **Backend**: Node.js, Express.js, MongoDB
-
----
-
-## 🎬 Apresentação
-
-(Adicionar o link ou conteúdo para a apresentação aqui)
-
----
-
-## Docker ![Docker Icon](https://upload.wikimedia.org/wikipedia/commons/3/39/Docker_logo.png)
-
-### Construir a Imagem do Frontend
-
-### Construir a Imagem do Frontend
-
-docker build -t ecosrev-frontend-app .
-
-# Executar o container
-docker run -p 3000:3000 -e NEXT_PUBLIC_API_URL=http://localhost:4000/api
-
-front-end: https://hub.docker.com/r/yamaokak/ecosrev-frontend
-
------------------------------------------------------------
-
-### Construir a Imagem do Backend
-
-docker build -t ecosrev-backend .
-
-# Executar o container
-docker run -p 4000:4000 --env-file .env ecosrev-backend
-
-back-end: https://hub.docker.com/r/yamaokak/ecosrev-backend 
-
-----------------------------------------------------------
-
-### Para a junção das imagens front e back em um unico container
-docker-compose up --build
-
+<details>
+  <summary>🐳 Docker: Composição (Frontend + Backend)</summary>
+  <p>
+    <strong>Rodar Frontend e Backend no Mesmo Container:</strong>  
+    <pre><code>docker-compose up --build</code></pre>
+  </p>
+</details>
